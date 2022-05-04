@@ -20,26 +20,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   navBar();
 });
-/**
- * Define Global Variables
- *
- */
+
+//Define Global Variables
 const header = document.querySelector(".page__header");
 const sections = document.getElementsByClassName("section");
 const navigation = document.getElementById("navbar__list");
 const navItems = document.getElementsByClassName("menu__link");
-
-/**
- * End Global Variables
- * Start Helper Functions
- *
- */
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
 
 // build the nav dynamically
 function navBar() {
@@ -62,14 +48,6 @@ function navBar() {
   }
 }
 
-/**
- * End Main Functions
- * Begin Events
- *
- */
-
-// Build menu
-
 // Scroll to anchor ID using scrollTO event
 // Scroll to section on link click
 function Scrolling(i) {
@@ -81,14 +59,7 @@ function Scrolling(i) {
     top: position,
     behavior: "smooth",
   });
-  // SmallMenu();
 }
-// hide menu when scrolling
-const menu = document.getElementById("menu");
-let userHasScrolled = false;
-window.addEventListener("scroll", function (e) {
-  userHasScrolled = true;
-});
 
 //scroll direction
 let oldValue = 0;

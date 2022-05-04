@@ -1,8 +1,19 @@
 # Landing Page Project
 
+Built dynamic Landing Page with HTML, CSS and JavaScript by Rade Mihovilovic
+
 ## Table of Contents
 
+- Dynamically adding or removing menu items when add or remove sections in the page
+- Detecting which section is in the viewport
+- Highlighting navigation menu items when relevant section is in the view port
+- Smoot scrolling on linked section when menu item is clicked 
+- Hiding nav menu when user does not scroll
+- Scroll direction detecting
+
 * [Instructions](#instructions)
+
+When user add new sections or remove the old ones menu will automatically update.
 
 ## Instructions
 
