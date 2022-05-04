@@ -24,8 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
  * Define Global Variables
  *
  */
-const sections = document.querySelectorAll(".section");
+const header = document.querySelector(".page__header");
+const sections = document.getElementsByClassName("section");
 const navigation = document.getElementById("navbar__list");
+const navItems = document.getElementsByClassName("menu__link");
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -38,7 +41,7 @@ const navigation = document.getElementById("navbar__list");
  *
  */
 
-// build the nav
+// build the nav dynamically
 function navBar() {
   for (let i = 0; i < sections.length; i++) {
     const li = document.createElement("li");
@@ -58,22 +61,6 @@ function navBar() {
       });
   }
 }
-
-// Add class 'active' to section when near top of viewport
-// Add class 'active' helper class
-// function addActive() {
-//   const addCl = document.querySelectorAll(".section");
-//   for (section of addCl) {
-//     section.classList.add("your-active-class");
-//   }
-// }
-// Remove 'active' helper class
-// function removeActive() {
-//   const remCl = document.querySelectorAll(".section");
-//   for (section of remCl) {
-//     section.classList.remove("your-active-class");
-//   }
-// }
 
 /**
  * End Main Functions
@@ -115,7 +102,7 @@ window.addEventListener("scroll", function (e) {
   oldValue = newValue;
 });
 
-// Set sections as active
+// check which section is in viewport
 function isInViewport(elem) {
   const rect = elem.getBoundingClientRect();
   return (
@@ -127,11 +114,29 @@ function isInViewport(elem) {
   );
 }
 
+// Set sections as active and navigation item highlight
 document.addEventListener("scroll", function () {
   for (let i = 0; i < sections.length; i++) {
     const section = sections[i];
-    isInViewport(section)
-      ? section.classList.add("your-active-class")
-      : section.classList.remove("your-active-class");
+    if (isInViewport(section)) {
+      section.classList.add("your-active-class");
+      navItems[i].classList.add("active-nav");
+    } else {
+      section.classList.remove("your-active-class");
+      navItems[i].classList.remove("active-nav");
+    }
+  }
+});
+
+// Hide header when not scrolling
+let timeoutId;
+window.addEventListener("scroll", function () {
+  header.style.opacity = "1";
+  clearTimeout(timeoutId);
+  if (window.pageYOffset !== 0) {
+    timeoutId = setTimeout(function () {
+      header.style.opacity = "0";
+      header.style.transition = "opacity 0.5s";
+    }, 1500);
   }
 });

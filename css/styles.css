@@ -83,7 +83,8 @@ section {
   color: #000;
 }
 
-.navbar__menu .menu__link:hover {
+.navbar__menu .menu__link:hover,
+.navbar__menu .menu__link.active-nav {
   background: #333;
   color: #fff;
   transition: ease 0.3s all;
@@ -231,23 +232,4 @@ section.your-active-class .landing__container::after {
   to {
     transform: rotate(360deg) translate(-1em) rotate(-360deg);
   }
-}
-
-/* navbar styling */
-/*#navbar__list li a {
-  text-decoration: none;
-  color: #49494a;
-  font-weight: bold;
-  font-size: 1.2em;
-  display: block;
-  padding: 1em;
-}
-
-#navbar__list li a:hover {
-  background-color: #49494a;
-  color: whitesmoke;
-} */
-
-.hide {
-  display: none;
 }
